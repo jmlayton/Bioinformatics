@@ -1,0 +1,6 @@
+Multiplexed_Seqs_Directory='/home/share/Jonathan/TEST/Data/Sequence_Batches/Seq_Batch_0518/Multiplexed_Seqs'
+Forward_Primer_Length=19
+Reverse_Primer_Length=20
+Amplicon_Length=240
+maxEE=2
+maxN=0
