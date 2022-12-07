@@ -116,9 +116,9 @@ table(nchar(getSequences(seqtab)))
 seqtab.nochim <- removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE)
 dim(seqtab.nochim)
 
-seqtab.nochim_path <- file.path(sub("/[^/]+$", "", Multiplexed_Seqs_Directory),"ASV_table.csv")
+seqtab.nochim_path <- file.path(sub("/[^/]+$", "", Multiplexed_Seqs_Directory),"ASV_table.rda")
 
-write.csv(seqtab.nochim, file=seqtab.nochim_path)
+save(seqtab.nochim, file = seqtab.nochim_path)
 
 ## ---------------------------------------------------------
 sum(seqtab.nochim)/sum(seqtab)
@@ -158,9 +158,10 @@ taxa <- assignTaxonomy(seqtab.nochim, "silva_nr99_v138.1_train_set.fa.gz",
 taxa <- addSpecies(taxa, "silva_species_assignment_v138.1.fa.gz")
 
 ## ---------------------------------------------------------
-taxa_path <- file.path(sub("/[^/]+$", "", Multiplexed_Seqs_Directory),"taxa.csv")
+taxa_path <- file.path(sub("/[^/]+$", "", Multiplexed_Seqs_Directory),"taxa.rda")
 
-write.csv(taxa, file=taxa_path)
+#save to rda file
+save(taxa, file = taxa_path)
 
 ## ---------------------------------------------------------
 taxa.print <- taxa 
