@@ -32,3 +32,6 @@ To initalize and run the Janja Pipeline execute the following code:
 chmod +x ./janja.sh
 ./janja.sh
 ```
+
+Updates Needed:
+- Silva classifier version is hardcoded. Script should instead check for latest clasifier and download it.
