@@ -11,11 +11,6 @@ echo "--------------------Beginning Janja Script ----------------------------" |
 
 exec 2>> $Janja_master_dir/janja_error.out 1>> $Janja_master_dir/janja_output.out
 
-chmod +x $Janja_master_dir/Janja/Qiime2/demux.sh
-
-cd $Janja_master_dir/Janja/Qiime2
-./demux.sh
-
 chmod +x $Janja_master_dir/Janja/Figaro/figaro.sh
 
 cd $Janja_master_dir/Janja/Figaro
@@ -25,7 +20,7 @@ cd $Janja_master_dir/Janja/Figaro
 rm -r $Janja_master_dir/Janja/Dada2/Dada2_output; mkdir -p $Janja_master_dir/Janja/Dada2/Dada2_output
 source  $Janja_master_dir/janja.par
 
-#Write configuration from janaj.par
+#Write configuration from janja.par
 echo "f_primer_len <- $Forward_Primer_Length" | tee $Janja_master_dir/Janja/Dada2/Dada2_Config.R 
 echo "r_primer_len <- $Reverse_Primer_Length" | tee -a $Janja_master_dir/Janja/Dada2/Dada2_Config.R 
 echo "maxEE <- $maxEE" | tee -a $Janja_master_dir/Janja/Dada2/Dada2_Config.R
@@ -36,7 +31,7 @@ source $Janja_master_dir/Janja/Figaro/figaro_out/Forward_Reverse_Trim.par
 echo "f_truncLen <- $Forward_Trim_Length" | tee -a $Janja_master_dir/Janja/Dada2/Dada2_Config.R
 echo "r_truncLen <- $Reverse_Trim_Length" | tee -a $Janja_master_dir/Janja/Dada2/Dada2_Config.R
 echo "Janja_master_dir <- '$Janja_master_dir'" | tee -a $Janja_master_dir/Janja/Dada2/Dada2_Config.R
-echo "Multiplexed_Seqs_Directory <-  '$Multiplexed_Seqs_Directory'" | tee -a $Janja_master_dir/Janja/Dada2/Dada2_Config.R
+echo "Demultiplexed_Seqs_Directory <-  '$Demultiplexed_Seqs_Directory'" | tee -a $Janja_master_dir/Janja/Dada2/Dada2_Config.R
 
 cd $Janja_master_dir/Janja/Dada2
 Rscript dada2.R

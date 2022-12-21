@@ -6,8 +6,7 @@ source("Dada2_Config.R")
 
 out_dir <- "Dada2_output"
 Janja_master_dir <- Janja_master_dir
-Multiplexed_Seqs_Directory <- Multiplexed_Seqs_Directory
-path <- paste0(sub("/[^/]+$", "", Multiplexed_Seqs_Directory),"/Demultiplexed_Seqs")
+path <- paste0(Demultiplexed_Seqs_Directory)
 set_maxN <- maxN
 set_maxEE <- maxEE
 f_fastq_format <- "_R1_001.fastq"
@@ -37,8 +36,8 @@ plotQualityProfile(fnRs[1:2])
 dev.off ()
 
 ## Path to filtered fastq files---------------------------------------------------------
-filtFs <- file.path(paste0(sub("/[^/]+$", "", Multiplexed_Seqs_Directory)), "Filtered_Seqs", paste0(sample.names, "_F_filt.fastq.gz"))
-filtRs <- file.path(paste0(sub("/[^/]+$", "", Multiplexed_Seqs_Directory)), "Filtered_Seqs", paste0(sample.names, "_R_filt.fastq.gz"))
+filtFs <- file.path(paste0(sub("/[^/]+$", "", Demultiplexed_Seqs_Directory)), "Filtered_Seqs", paste0(sample.names, "_F_filt.fastq.gz"))
+filtRs <- file.path(paste0(sub("/[^/]+$", "", Demultiplexed_Seqs_Directory)), "Filtered_Seqs", paste0(sample.names, "_R_filt.fastq.gz"))
 names(filtFs) <- sample.names
 names(filtRs) <- sample.names
 
@@ -116,7 +115,7 @@ table(nchar(getSequences(seqtab)))
 seqtab.nochim <- removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE)
 dim(seqtab.nochim)
 
-seqtab.nochim_path <- file.path(sub("/[^/]+$", "", Multiplexed_Seqs_Directory),"ASV_table.rda")
+seqtab.nochim_path <- file.path(sub("/[^/]+$", "", Demultiplexed_Seqs_Directory),"ASV_table.rda")
 
 save(seqtab.nochim, file = seqtab.nochim_path)
 
@@ -158,7 +157,7 @@ taxa <- assignTaxonomy(seqtab.nochim, "silva_nr99_v138.1_train_set.fa.gz",
 taxa <- addSpecies(taxa, "silva_species_assignment_v138.1.fa.gz")
 
 ## ---------------------------------------------------------
-taxa_path <- file.path(sub("/[^/]+$", "", Multiplexed_Seqs_Directory),"taxa.rda")
+taxa_path <- file.path(sub("/[^/]+$", "", Demultiplexed_Seqs_Directory),"taxa.rda")
 
 #save to rda file
 save(taxa, file = taxa_path)
