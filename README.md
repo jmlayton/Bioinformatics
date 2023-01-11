@@ -13,7 +13,7 @@ Finally, the [Dada2 package](https://benjjneb.github.io/dada2/dada-installation.
 git clone https://github.com/jmlayton/Bioinformatics.git
 ```
 
-The repository contains one master directory called 'Janja.' This is where the Figaro, and Dada2 sub executables are located. These directories are also where you will find the bioinformatic outputs of each software. All sequence files, taxa.csv, and ASV_table.csv, will remain adjacent to the defined multiplexed sequencES directory. 
+The repository contains one master directory called 'Janja.' This is where the Figaro, and Dada2 sub executables are located. These directories are also where you will find the bioinformatic outputs of each software. All sequence files, taxa.csv, and ASV_table.csv, will remain adjacent to the defined demultiplexed sequences directory. 
 
 The directory of demultiplexed sequences must contain unmergerd forward and reverse sequences. 
 
