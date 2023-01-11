@@ -10,7 +10,7 @@ Finally, the [Dada2 package](https://benjjneb.github.io/dada2/dada-installation.
 **To install Janja run the following code**
 
 ```
-git clone https://github.com/jmlayton/Bioinformatics.git
+git clone https://github.com/jmlayton/Bioinformatics_Demult
 ```
 
 The repository contains one master directory called 'Janja.' This is where the Figaro, and Dada2 sub executables are located. These directories are also where you will find the bioinformatic outputs of each software. All sequence files, taxa.csv, and ASV_table.csv, will remain adjacent to the defined demultiplexed sequences directory. 
